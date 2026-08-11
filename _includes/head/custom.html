@@ -43,4 +43,15 @@
 .greedy-nav a { color: #1f1f1e; }
 .greedy-nav .visible-links a:before { background: #7a3559; height: 2px; }
 .greedy-nav a:hover { color: #7a3559; }
+ .greedy-nav a.is-current {
+  color: #7a3559 !important;
+  font-weight: 600;
+}
+ .greedy-nav a.is-current:after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: #7a3559;
+  margin-top: 3px;
+}
 </style>
