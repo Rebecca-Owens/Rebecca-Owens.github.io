@@ -64,5 +64,31 @@
 a.site-title {
   color: #7a3559 !important;
 }
+ <style>
+  /* your existing rules — plum links, site title, hidden footer, etc. */
+  .masthead .site-title { color: #7a3559 !important; }
+  .page__footer { display: none; }
+
+  /* new: headings */
+  .page__content h2,
+  .page__content h3 {
+    color: #7a3559;
+    border-bottom-color: #e8dde3;
+  }
+
+  /* new: blockquote */
+  .page__content blockquote {
+    border-left: 3px solid #7a3559;
+    color: #4a4a48;
+  }
+
+  /* new: sidebar */
+  .sidebar {
+    background: #faf6f8;
+    padding: 1.25rem 1rem;
+    border-radius: 6px;
+  }
+  .author__name { color: #7a3559; }
+  .author__urls .fa, .author__urls .ai { color: #7a3559; }
 </style>
 
