@@ -1,14 +1,16 @@
-# The rail renders in this order, top to bottom.
-# `name` must match the strings you use in each publication's `topics:` list
-# exactly — "Digital policy" and "Digital Policy" count as two different topics.
-# Put your heaviest topics near the top: the curve bundle gets a shape that way
-# instead of an even spray.
+# The rail renders in this order, top to bottom — heaviest topics first, so the
+# curve bundle has a shape rather than an even spray.
+#
+# `name` must match the strings in each publication's `topics:` list EXACTLY.
+# "IoT" and "IOT" count as two different topics.
 #
 # A topic with no papers is skipped automatically, so you can leave future
 # interests listed here.
 
 - name: AI law and regulation
 - name: Accountability
-- name: Digital policy
-- name: Socio-technical systems
-- name: Empirical legal methods
+- name: IoT
+- name: Online harms
+- name: Privacy and data
+- name: Generative AI
+- name: Consumer protection
