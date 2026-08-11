@@ -1,0 +1,75 @@
+{% comment %}
+  Interests rail + publication list with connecting curves.
+
+  Compatible with Jekyll 3.10 (what GitHub Pages builds with) — no `push`,
+  no `concat`. The rail order comes from _data/interests.yml.
+
+  Each file in _publications/ should define:
+    title, date, authors, venue, venueshort, teaser, paperurl, topics[], links[]
+{% endcomment %}
+
+{% assign pubs = site.publications | sort: 'date' | reverse %}
+
+<div class="pc" data-pc>
+
+  <nav class="pc__rail" aria-label="Filter publications by research interest">
+    <p class="pc__rail-head">Interests</p>
+
+    {% for i in site.data.interests %}
+      {% assign n = 0 %}
+      {% for p in pubs %}
+        {% if p.topics contains i.name %}{% assign n = n | plus: 1 %}{% endif %}
+      {% endfor %}
+
+      {% if n > 0 %}
+        <button type="button" class="pc__topic" data-topic="{{ i.name | slugify }}" aria-pressed="false">
+          <span class="pc__topic-name">{{ i.name }}</span>
+          <span class="pc__topic-count" aria-hidden="true">{{ n }}</span>
+          <span class="pc__sr">{{ n }} papers</span>
+        </button>
+      {% endif %}
+    {% endfor %}
+
+    <button type="button" class="pc__clear" data-pc-clear hidden>Show all</button>
+  </nav>
+
+  <div class="pc__curves" aria-hidden="true"></div>
+
+  <div class="pc__list">
+    <p class="pc__status" data-pc-status role="status">{{ pubs | size }} papers</p>
+
+    {% for p in pubs %}
+      <article class="pc__pub" data-topics="{% for t in p.topics %}{{ t | slugify }}{% unless forloop.last %} {% endunless %}{% endfor %}">
+
+        {% if p.teaser %}
+          <img class="pc__teaser" src="{{ p.teaser | relative_url }}" alt="" loading="lazy">
+        {% endif %}
+
+        <div class="pc__body">
+          <h3 class="pc__title">
+            {% if p.paperurl %}
+              <a href="{{ p.paperurl }}">{{ p.title }}</a>
+            {% else %}
+              <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+            {% endif %}
+          </h3>
+
+          {% if p.authors %}<p class="pc__authors">{{ p.authors }}</p>{% endif %}
+
+          <p class="pc__venue">
+            {% if p.venueshort %}<span class="pc__badge">{{ p.venueshort }}</span>{% endif %}
+            <span>{{ p.venue }}{% if p.date %}, {{ p.date | date: "%Y" }}{% endif %}</span>
+          </p>
+
+          {% if p.award %}<p class="pc__award">{{ p.award }}</p>{% endif %}
+
+          {% if p.links %}
+            <p class="pc__links">
+              {% for l in p.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% unless forloop.last %} <span aria-hidden="true">·</span> {% endunless %}{% endfor %}
+            </p>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</div>
