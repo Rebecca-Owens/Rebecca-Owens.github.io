@@ -8,8 +8,8 @@
   --pc-curve:    #cbc7be;
   --pc-accent:   #7a3559;
   --pc-accent-bg:#f4e9ef;
-  --pc-rail:     170px;
-  --pc-gutter:   72px;
+  --pc-rail:     200px;
+  --pc-gutter:   96px;
 
   position: relative;
   display: grid;
