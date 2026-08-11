@@ -6,7 +6,7 @@
   'use strict';
 
   var SVG_NS = 'http://www.w3.org/2000/svg';
-  var MIN_WIDTH = 640;          // below this, curves are not drawn
+  var MIN_WIDTH = 400;          // below this, curves are not drawn
   var CONTROL_RATIO = 0.5;      // horizontal pull of the bezier handles
   var LAND_SPREAD = 22;         // px spread of landing points on a multi-topic paper
 
