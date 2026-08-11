@@ -272,3 +272,5 @@
 @media (min-width: 80em) {
   .pc-page .page { padding-right: 0; }
 }
+.pc-page .page__inner-wrap { padding-left: 0; }
+.pc-page .pc { margin-left: -40px; }
