@@ -37,7 +37,7 @@
     <p class="pc__status" data-pc-status role="status">{{ pubs | size }} papers</p>
 
     {% for p in pubs %}
-      <article class="pc__pub" data-topics="{% for t in p.topics %}{{ t | slugify }}{% unless forloop.last %} {% endunless %}{% endfor %}">
+    <article class="pc__pub" data-topics="{% for t in p.topics %}{{ t | slugify }}{% if forloop.last == false %}&#32;{% endif %}{% endfor %}">
 
         {% if p.teaser %}
           <img class="pc__teaser" src="{{ p.teaser | relative_url }}" alt="" loading="lazy">
