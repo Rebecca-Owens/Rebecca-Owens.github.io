@@ -1,0 +1,16 @@
+# The rail renders in this order, top to bottom — heaviest topics first, so the
+# curve bundle has a shape rather than an even spray.
+#
+# `name` must match the strings in each publication's `topics:` list EXACTLY.
+# "Smart homes" and "Smart Homes" count as two different topics.
+#
+# A topic with no papers is skipped automatically, so you can leave future
+# interests listed here.
+
+- name: AI law and regulation
+- name: Accountability
+- name: Smart homes
+- name: Online harms
+- name: Privacy and data
+- name: Generative AI
+- name: Consumer protection
