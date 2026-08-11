@@ -30,6 +30,7 @@
     var pubs = Array.prototype.slice.call(root.querySelectorAll('.pc__pub'));
     var edges = [];
     var selected = null;
+    var hovered = null;   // paper element under the cursor
 
     if (getComputedStyle(root).position === 'static') root.style.position = 'relative';
 
@@ -67,7 +68,8 @@
         };
       });
 
-      pubs.forEach(function (pub) {
+      pubs.forEach(function (pub, pubIndex) {
+        if (!pub.id) pub.id = 'pc-pub-' + pubIndex;
         var list = topicsOf(pub);
         var o = offsetWithin(pub, root);
         var x2 = o.x - 6;
@@ -86,6 +88,7 @@
                     (x2 - pull) + ' ' + y2 + ', ' + x2 + ' ' + y2);
           path.setAttribute('class', 'pc__edge');
           path.setAttribute('data-topic', slug);
+          path.setAttribute('data-pub', pub.id);
           svg.appendChild(path);
           edges.push(path);
         });
@@ -95,23 +98,45 @@
     }
 
     function render() {
+      /* Hover takes visual priority over selection, but doesn't replace it —
+         releasing the cursor returns to whatever was selected. */
+      var hoverTopics = hovered ? topicsOf(hovered) : null;
+
       edges.forEach(function (e) {
-        var on = !selected || e.getAttribute('data-topic') === selected;
-        e.classList.toggle('is-lit', Boolean(selected) && on);
-        e.classList.toggle('is-dim', Boolean(selected) && !on);
+        var slug = e.getAttribute('data-topic');
+        var lit, dim;
+
+        if (hoverTopics) {
+          lit = e.getAttribute('data-pub') === hovered.id;
+          dim = !lit;
+        } else if (selected) {
+          lit = slug === selected;
+          dim = !lit;
+        } else {
+          lit = false;
+          dim = false;
+        }
+
+        e.classList.toggle('is-lit', lit);
+        e.classList.toggle('is-dim', dim);
       });
 
       topics.forEach(function (btn) {
-        var isSel = selected === btn.getAttribute('data-topic');
+        var slug = btn.getAttribute('data-topic');
+        var isSel = selected === slug;
+        var isHovered = hoverTopics && hoverTopics.indexOf(slug) > -1;
+
         btn.setAttribute('aria-pressed', isSel ? 'true' : 'false');
-        btn.classList.toggle('is-active', isSel);
-        btn.classList.toggle('is-dim', Boolean(selected) && !isSel);
+        btn.classList.toggle('is-active', isSel || Boolean(isHovered));
+        btn.classList.toggle('is-dim',
+          (hoverTopics && !isHovered) || (!hoverTopics && Boolean(selected) && !isSel));
       });
 
       var shown = 0;
       pubs.forEach(function (pub) {
         var on = !selected || topicsOf(pub).indexOf(selected) > -1;
         pub.classList.toggle('is-dim', !on);
+        pub.classList.toggle('is-hovered', pub === hovered);
         if (on) shown++;
       });
 
@@ -134,6 +159,14 @@
         if (topics[0]) topics[0].focus();
       });
     }
+
+    pubs.forEach(function (pub) {
+      pub.addEventListener('mouseenter', function () { hovered = pub; render(); });
+      pub.addEventListener('mouseleave', function () { hovered = null; render(); });
+      /* Keyboard users get the same effect when a link inside gains focus. */
+      pub.addEventListener('focusin', function () { hovered = pub; render(); });
+      pub.addEventListener('focusout', function () { hovered = null; render(); });
+    });
 
     root.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && selected) { selected = null; render(); }
