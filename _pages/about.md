@@ -1,13 +1,12 @@
 ---
 permalink: /
-title: "About me"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 --- 
 
-Hi, I'm Rebecca 👋
+<span class="highlight">Hi, I'm Rebecca 👋</span>
 
 I'm a Postdoctoral Research Associate at **Durham University**, working at the
 intersection of AI law and digital policy. My research asks how emerging technologies reshape accountability, and the
