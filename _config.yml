@@ -24,16 +24,13 @@ author:
   # Biographic information
   avatar           : "RO photo.jpg"
   name             : "Dr Rebecca Owens"
-  pronouns         : "she/her"
   bio              : "Write one or two sentences here about your research."
-  location         : "Durham, UK"
   employer         : "Durham University"
   uri              : "https://www.durham.ac.uk/staff/rebecca-owens/"
   email            : "rebecca.owens@durham.ac.uk"
 
   # Academic websites
   googlescholar    : "https://scholar.google.com/citations?hl=en&user=RhCn8B8AAAAJ"
-  orcid            : "https://orcid.org/0009-0008-4400-9767"
   ssrn             : # URL
   pubmed           : # Your own PubMed search URL, or leave blank
   researchgate     : # URL
@@ -44,8 +41,6 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "Rebecca-Owens"
-  kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
