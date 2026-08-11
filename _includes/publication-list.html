@@ -23,9 +23,9 @@
 
       {% if n > 0 %}
         <button type="button" class="pc__topic" data-topic="{{ i.name | slugify }}" aria-pressed="false">
-          <span class="pc__topic-name">{{ i.name }}</span>
+      
           <span class="pc__topic-count" aria-hidden="true">{{ n }}</span>
-          <span class="pc__sr">{{ n }} papers</span>
+         
         </button>
       {% endif %}
     {% endfor %}
