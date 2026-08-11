@@ -7,16 +7,15 @@
 # server process.
 
 # Basic Site Settings
-locale                   : "en-Uk"
+locale                   : "en-GB"
 site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
 title                    : "Dr Rebecca Owens"
 title_separator          : "-"
 name                     : &name "Rebecca Owens"
-description              : &description "Rebecca's academic portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
-url                      : https://Rebecca-Owens.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
-                                                           # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
+description              : &description "Academic homepage of Dr Rebecca Owens, Durham University."
+url                      : https://rebecca-owens.github.io
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+repository               : "Rebecca-Owens/Rebecca-Owens.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
@@ -25,18 +24,18 @@ author:
   # Biographic information
   avatar           : "profile.png"
   name             : "Dr Rebecca Owens"
-  pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Durham"
+  pronouns         : # example: "she/her"
+  bio              : "Write one or two sentences here about your research."
+  location         : "Durham, UK"
   employer         : "Durham University"
-  uri              : # https://www.durham.ac.uk/staff/rebecca-owens/
-  email            : "rebecca.owens@durham.ac.uk" 
+  uri              : "https://www.durham.ac.uk/staff/rebecca-owens/"
+  email            : "rebecca.owens@durham.ac.uk"
 
   # Academic websites
   googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
-  orcid            : "https://orcid.org/yourorcidurl"
+  orcid            : # Paste your full ORCID URL here, e.g. https://orcid.org/0000-0002-1825-0097
   ssrn             : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : # Your own PubMed search URL, or leave blank
   researchgate     : # URL
 
 
@@ -45,13 +44,13 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "academicpages"
+  github           : "Rebecca-Owens"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
   artstation       : # Username
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : # Your Bluesky handle, e.g. rebeccaowens.bsky.social
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
@@ -296,7 +295,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: Etc/UTC # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Europe/London # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
