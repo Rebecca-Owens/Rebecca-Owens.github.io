@@ -276,3 +276,18 @@
 /* Paper count hidden. The element stays in the DOM because the script writes
    the filtered count into it — deleting it would break filtering. */
 .pc__status { display: none; }
+
+/* ---- width override fallback ----
+   If the `pc-page` body class never reaches the document (some Minimal Mistakes
+   versions), scope the width fix to wherever the component actually appears. */
+
+.page:has(.pc),
+.page__inner-wrap:has(.pc) {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  float: none !important;
+}
+
+#main:has(.pc) { max-width: 1200px; }
