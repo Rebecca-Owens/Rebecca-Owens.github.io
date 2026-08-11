@@ -1,278 +1,73 @@
-/* Interests rail + publication list.
-   All colours are custom properties — override them in one place to re-theme. */
+{% comment %}
+  Interests rail + publication list with connecting curves.
 
-.pc {
-  --pc-ink:      #1f1f1e;
-  --pc-muted:    #86837c;
-  --pc-hair:     #e2dfd8;
-  --pc-curve:    #cbc7be;
-  --pc-accent:   #7a3559;
-  --pc-accent-bg:#f4e9ef;
-  --pc-rail:     170px;
-  --pc-gutter:   72px;
+  Compatible with Jekyll 3.10 (what GitHub Pages builds with) — no `push`,
+  no `concat`. The rail order comes from _data/interests.yml.
 
-  position: relative;
-  display: grid;
-  grid-template-columns: var(--pc-rail) var(--pc-gutter) minmax(0, 1fr);
-  column-gap: 0;
-  color: var(--pc-ink);
-}
+  Each file in _publications/ should define:
+    title, date, authors, venue, venueshort, teaser, paperurl, topics[], links[]
+{% endcomment %}
 
-@media (prefers-color-scheme: dark) {
-  .pc {
-    --pc-ink:      #eceae5;
-    --pc-muted:    #97938b;
-    --pc-hair:     #34322e;
-    --pc-curve:    #4a4741;
-    --pc-accent:   #d98fb2;
-    --pc-accent-bg:#3a2430;
-  }
-}
+{% assign pubs = site.publications | sort: 'date' | reverse %}
 
-/* ---- rail ---- */
+<div class="pc" data-pc>
 
-.pc__rail {
-  grid-column: 1;
-  align-self: start;
-  position: sticky;
-  top: 2rem;
-  text-align: right;
-}
+  <nav class="pc__rail" aria-label="Filter publications by research interest">
+    <p class="pc__rail-head">Interests</p>
 
-.pc__rail-head {
-  margin: 0 0 0.75rem;
-  font-size: 0.6875rem;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--pc-muted);
-}
+    {% for i in site.data.interests %}
+      {% assign n = 0 %}
+      {% for p in pubs %}
+        {% if p.topics contains i.name %}{% assign n = n | plus: 1 %}{% endif %}
+      {% endfor %}
 
-.pc__topic {
-  display: flex;
-  justify-content: flex-end;
-  align-items: baseline;
-  gap: 0.5rem;
-  width: 100%;
-  padding: 0.25rem 0;
-  border: 0;
-  background: none;
-  font: inherit;
-  font-size: 0.9375rem;
-  line-height: 1.35;
-  color: inherit;
-  text-align: right;
-  cursor: pointer;
-  transition: opacity 0.18s ease, color 0.18s ease;
-}
+      {% if n > 0 %}
+        <button type="button" class="pc__topic" data-topic="{{ i.name | slugify }}" aria-pressed="false">
+          <span class="pc__topic-name">{{ i.name }}</span>
+        </button>
+      {% endif %}
+    {% endfor %}
 
-.pc__topic-count {
-  font-size: 0.75rem;
-  color: var(--pc-muted);
-  font-variant-numeric: tabular-nums;
-}
+    <button type="button" class="pc__clear" data-pc-clear hidden>Show all</button>
+  </nav>
 
-.pc__topic:hover .pc__topic-name { color: var(--pc-accent); }
-.pc__topic.is-active { color: var(--pc-accent); font-weight: 500; }
-.pc__topic.is-dim { opacity: 0.4; }
+  <div class="pc__curves" aria-hidden="true"></div>
 
-.pc__topic:focus-visible,
-.pc__clear:focus-visible {
-  outline: 2px solid var(--pc-accent);
-  outline-offset: 3px;
-  border-radius: 2px;
-}
+  <div class="pc__list">
+    <p class="pc__status" data-pc-status role="status">{{ pubs | size }} papers</p>
 
-.pc__clear {
-  margin-top: 1.25rem;
-  padding: 0;
-  border: 0;
-  background: none;
-  font: inherit;
-  font-size: 0.8125rem;
-  color: var(--pc-accent);
-  cursor: pointer;
-}
+    {% for p in pubs %}
+      <article class="pc__pub" data-topics="{% for t in p.topics %}{{ t | slugify }}{% unless forloop.last %} {% endunless %}{% endfor %}">
 
-.pc__sr {
-  position: absolute;
-  width: 1px; height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-}
+        {% if p.teaser %}
+          <img class="pc__teaser" src="{{ p.teaser | relative_url }}" alt="" loading="lazy">
+        {% endif %}
 
-/* ---- curve layer ---- */
+        <div class="pc__body">
+          <h3 class="pc__title">
+            {% if p.paperurl %}
+              <a href="{{ p.paperurl }}">{{ p.title }}</a>
+            {% else %}
+              <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+            {% endif %}
+          </h3>
 
-.pc__curves {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
+          {% if p.authors %}<p class="pc__authors">{{ p.authors }}</p>{% endif %}
 
-.pc__svg { display: block; overflow: visible; }
+          <p class="pc__venue">
+            {% if p.venueshort %}<span class="pc__badge">{{ p.venueshort }}</span>{% endif %}
+            <span>{{ p.venue }}{% if p.date %}, {{ p.date | date: "%Y" }}{% endif %}</span>
+          </p>
 
-.pc__edge {
-  fill: none;
-  stroke: var(--pc-curve);
-  stroke-width: 1;
-  opacity: 0.55;
-  transition: stroke 0.2s ease, opacity 0.2s ease, stroke-width 0.2s ease;
-}
+          {% if p.award %}<p class="pc__award">{{ p.award }}</p>{% endif %}
 
-.pc__edge.is-lit { stroke: var(--pc-accent); stroke-width: 1.5; opacity: 1; }
-.pc__edge.is-dim { opacity: 0.1; }
-
-/* ---- list ---- */
-
-.pc__list { grid-column: 3; position: relative; z-index: 1; }
-
-.pc__status {
-  margin: 0 0 1.25rem;
-  font-size: 0.75rem;
-  color: var(--pc-muted);
-  font-variant-numeric: tabular-nums;
-}
-
-.pc__pub {
-  display: flex;
-  gap: 1.25rem;
-  padding-bottom: 1.75rem;
-  margin-bottom: 1.75rem;
-  border-bottom: 1px solid var(--pc-hair);
-  transition: opacity 0.2s ease;
-}
-
-.pc__pub:last-child { border-bottom: 0; margin-bottom: 0; }
-.pc__pub.is-dim { opacity: 0.25; }
-
-.pc__teaser {
-  width: 176px;
-  height: auto;
-  flex-shrink: 0;
-  border: 1px solid var(--pc-hair);
-  border-radius: 3px;
-  object-fit: cover;
-  background: var(--pc-hair);
-}
-
-.pc__body { min-width: 0; }
-
-.pc__title {
-  margin: 0 0 0.3rem;
-  font-size: 1.0625rem;
-  font-weight: 500;
-  line-height: 1.35;
-}
-
-.pc__title a { color: var(--pc-accent); text-decoration: none; }
-.pc__title a:hover { text-decoration: underline; }
-
-.pc__authors {
-  margin: 0 0 0.4rem;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  color: var(--pc-muted);
-}
-
-.pc__authors .pc__me {
-  color: var(--pc-ink);
-  border-bottom: 1px solid currentColor;
-}
-
-.pc__venue {
-  margin: 0 0 0.35rem;
-  font-size: 0.875rem;
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.pc__badge {
-  font-size: 0.6875rem;
-  padding: 0.15rem 0.45rem;
-  border-radius: 3px;
-  background: var(--pc-accent-bg);
-  color: var(--pc-accent);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-
-.pc__award { margin: 0 0 0.35rem; font-size: 0.875rem; color: var(--pc-accent); }
-
-.pc__links { margin: 0; font-size: 0.875rem; color: var(--pc-muted); }
-.pc__links a { color: var(--pc-muted); text-decoration: none; border-bottom: 1px solid var(--pc-hair); }
-.pc__links a:hover { color: var(--pc-ink); border-bottom-color: currentColor; }
-
-/* ---- narrow screens: rail becomes a scrolling row, curves switch off ---- */
-
-@media (max-width: 900px) {
-  .pc { display: block; }
-  .pc__curves { display: none; }
-
-  .pc__rail {
-    position: static;
-    text-align: left;
-    display: flex;
-    gap: 0.5rem;
-    overflow-x: auto;
-    padding-bottom: 0.75rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid var(--pc-hair);
-    scrollbar-width: none;
-  }
-
-  .pc__rail::-webkit-scrollbar { display: none; }
-  .pc__rail-head { display: none; }
-
-  .pc__topic {
-    width: auto;
-    flex: 0 0 auto;
-    padding: 0.3rem 0.7rem;
-    border: 1px solid var(--pc-hair);
-    border-radius: 999px;
-    font-size: 0.8125rem;
-    white-space: nowrap;
-  }
-
-  .pc__topic.is-active { border-color: var(--pc-accent); }
-  .pc__clear { margin: 0; flex: 0 0 auto; align-self: center; }
-
-  .pc__pub { gap: 1rem; }
-  .pc__teaser { width: 104px; }
-}
-
-@media (max-width: 520px) {
-  .pc__pub { flex-direction: column; }
-  .pc__teaser { width: 100%; max-width: 320px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pc__edge, .pc__pub, .pc__topic { transition: none; }
-}
-
-/* ---- Minimal Mistakes / academicpages overrides ----
-   MM constrains .page to ~75% of the wrapper to leave room for the author
-   sidebar. The three-column grid needs that space back. Scoped to the
-   publications page only, via `classes: wide pc-page` in the front matter. */
-
-.pc-page .page {
-  width: 100%;
-  padding-right: 0;
-  float: none;
-}
-
-.pc-page .page__inner-wrap { max-width: 1180px; }
-
-.pc-page .page__content h3 { border-bottom: 0; padding-bottom: 0; }
-
-.pc-page .archive { max-width: none; }
-
-@media (min-width: 80em) {
-  .pc-page .page { padding-right: 0; }
-}
-
-/* Paper count hidden. The element stays in the DOM because the script writes
-   the filtered count into it — deleting it would break filtering. */
-.pc__status { display: none; }
+          {% if p.links %}
+            <p class="pc__links">
+              {% for l in p.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% unless forloop.last %} <span aria-hidden="true">·</span> {% endunless %}{% endfor %}
+            </p>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</div>
