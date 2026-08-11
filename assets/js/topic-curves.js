@@ -170,3 +170,15 @@
     init();
   }
 })();
+/* The theme's width constraints are winning. Override them wherever the
+   component actually appears, regardless of body classes. */
+.page:has(.pc),
+.page__inner-wrap:has(.pc) {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  float: none !important;
+}
+
+#main:has(.pc) { max-width: 1200px; }
