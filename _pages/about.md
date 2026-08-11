@@ -5,8 +5,7 @@ redirect_from:
   - /about/
   - /about.html
 --- 
-
-<span class="highlight">Hi, I'm Rebecca 👋</span>
+# <span class="marker">Hi, I'm Rebecca 👋</span>
 
 I'm a Postdoctoral Research Associate at **Durham University**, working at the
 intersection of AI law and digital policy. My research asks how emerging technologies reshape accountability, and the
@@ -18,7 +17,7 @@ operation of law in practice.
 ## Research
 
 Legal frameworks were built around ideas of control and
-decision-making. Technological systems complicate all three. I'm particularly
+decision-making. Technological systems complicate both. I'm particularly
 interested in the gap between what the law formally requires and how
 responsibility is *actually* distributed across complex digital systems.
 
