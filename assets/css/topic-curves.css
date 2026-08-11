@@ -274,3 +274,7 @@
 }
 .pc-page .page__inner-wrap { padding-left: 0; }
 .pc-page .pc { margin-left: -40px; }
+/* Fallback: apply the width fix wherever the component appears, in case the
+   page class never reaches the body tag. */
+.page:has(.pc) { width: 100%; padding-right: 0; float: none; }
+.page__inner-wrap:has(.pc) { max-width: 1180px; padding-left: 0; }
