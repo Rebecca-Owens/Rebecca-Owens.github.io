@@ -6,7 +6,7 @@ author_profile: true
 
 # <span class="marker">Hi, I'm Rebecca 👋</span>
 
-I'm a Postdoctoral Research Associate at **Durham University**, working at the intersection of AI law and digital policy. My research asks how emerging technologies reshape accountability, and the operation of law in practice.
+I'm a Postdoctoral Research Associate at **Durham University**, working at the intersection of AI law and digital policy. My research asks how emerging technologies reshape accountability and the operation of law in practice.
 
 > How can law remain effective when responsibility is increasingly distributed across people, organisations, and technologies?
 
@@ -20,6 +20,7 @@ Using interdisciplinary methods, I examine how these systems are designed and ex
 
 - AI Regulation
 - Accountability in socio-technical systems
+- Cybersecurity 
 - Digital policy and governance
 - Empirical and interdisciplinary legal methods
 
