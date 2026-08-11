@@ -1,17 +1,32 @@
----
-permalink: /
-title: "Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites"
-author_profile: true
-redirect_from: 
-  - /about/
-  - /about.html
----
+
 Hi, I'm Rebecca 👋
 
-I'm a researcher working at the intersection of AI law, socio-technical research, and digital policy. I am currently a Postdoctoral Research Associate at Durham University, where I study how emerging technologies reshape responsibility, accountability, and the operation of law in practice.
+I'm a Postdoctoral Research Associate at **Durham University**, working at the
+intersection of AI law, socio-technical research, and digital policy. My research
+asks how emerging technologies reshape responsibility, accountability, and the
+operation of law in practice.
 
-My work is driven by a broader interest in how legal frameworks respond when technological systems complicate traditional ideas of control, responsibility, and decision-making. I am particularly interested in the gap between what the law formally requires and how responsibility is actually distributed across complex digital systems.
+> How can law remain effective when responsibility is increasingly distributed
+> across people, organisations, and technologies?
 
-Using interdisciplinary methods, I examine how these systems are designed, governed, and experienced in practice, and what this means for the development of more effective forms of legal and institutional accountability.
+## Research
 
-At the heart of my research is a simple question: how can law remain effective when responsibility is increasingly distributed across people, organisations, and technologies?
+Legal frameworks were built around fairly clean ideas of control and
+decision-making. Technological systems complicate all three. I'm particularly
+interested in the gap between what the law formally requires and how
+responsibility is *actually* distributed across complex digital systems.
+
+Using interdisciplinary methods, I examine how these systems are designed,
+governed, and experienced in practice — and what that means for building more
+effective forms of legal and institutional accountability.
+
+## Interests
+
+- AI Regulation
+- Accountability in socio-technical systems
+- Digital policy and governance
+- Empirical and interdisciplinary legal methods
+
+---
+
+📄 [Publications](/publications/) &nbsp;·&nbsp; ✉️ [rebecca.owens@durham.ac.uk](mailto:rebecca.owens@durham.ac.uk)
