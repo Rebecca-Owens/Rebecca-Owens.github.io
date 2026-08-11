@@ -8,8 +8,8 @@
   --pc-curve:    #cbc7be;
   --pc-accent:   #7a3559;
   --pc-accent-bg:#f4e9ef;
-  --pc-rail:     200px;
-  --pc-gutter:   96px;
+  --pc-rail:     170px;
+  --pc-gutter:   72px;
 
   position: relative;
   display: grid;
@@ -272,9 +272,7 @@
 @media (min-width: 80em) {
   .pc-page .page { padding-right: 0; }
 }
-.pc-page .page__inner-wrap { padding-left: 0; }
-.pc-page .pc { margin-left: -40px; }
-/* Fallback: apply the width fix wherever the component appears, in case the
-   page class never reaches the body tag. */
-.page:has(.pc) { width: 100%; padding-right: 0; float: none; }
-.page__inner-wrap:has(.pc) { max-width: 1180px; padding-left: 0; }
+
+/* Paper count hidden. The element stays in the DOM because the script writes
+   the filtered count into it — deleting it would break filtering. */
+.pc__status { display: none; }
