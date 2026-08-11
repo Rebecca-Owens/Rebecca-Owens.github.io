@@ -1,10 +1,9 @@
+
 ---
 permalink: /
+title: ""
 author_profile: true
-redirect_from: 
-  - /about/
-  - /about.html
---- 
+---
 # <span class="marker">Hi, I'm Rebecca 👋</span>
 
 I'm a Postdoctoral Research Associate at **Durham University**, working at the
