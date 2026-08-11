@@ -291,3 +291,22 @@
 }
 
 #main:has(.pc) { max-width: 1200px; }
+
+/* ---- hover: illuminate a paper and the interests it belongs to ---- */
+
+.pc__pub {
+  border-radius: 4px;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.pc__pub.is-hovered {
+  background: var(--pc-accent-bg);
+  box-shadow: 0 0 0 10px var(--pc-accent-bg);
+}
+
+/* Hovering a paper must never leave it dimmed. */
+.pc__pub.is-hovered.is-dim { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pc__pub { transition: none; }
+}
