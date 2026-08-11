@@ -22,9 +22,9 @@ repository               : "Rebecca-Owens/Rebecca-Owens.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "RO photo.jpg"
   name             : "Dr Rebecca Owens"
-  pronouns         : # example: "she/her"
+  pronouns         : "she/her"
   bio              : "Write one or two sentences here about your research."
   location         : "Durham, UK"
   employer         : "Durham University"
