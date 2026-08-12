@@ -1,5 +1,6 @@
 ---
 title: "Accountability in the Fake Follower Market"
+teaser: /images/teasers/fake-followers.png
 featured: true
 collection: publications
 permalink: /publication/fake-follower-market
