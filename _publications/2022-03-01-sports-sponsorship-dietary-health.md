@@ -1,5 +1,6 @@
 ---
 title: "A 'Game-Changer' for Dietary Health: Addressing the Implications of Sports Sponsorship by Food Businesses Through an Innovative Interdisciplinary Collaboration"
+teaser: /images/teasers/sports-sponsorship.png
 collection: publications
 permalink: /publication/sports-sponsorship-dietary-health
 date: 2022-03-01
