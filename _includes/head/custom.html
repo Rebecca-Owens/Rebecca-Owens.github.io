@@ -118,6 +118,14 @@ a.site-title {
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
+ <style>
+  .marker { ...your existing rule... }
+
+  .page__content h2 .marker,
+  .page__content h1 .marker { display: inline; }
+
+  .page__content h2 { border-bottom: 0; }
+</style>
 
 .page__content h1 .marker { font-weight: 600; }
  .theme-toggle, #theme-toggle, .masthead__theme-toggle { display: none; }
