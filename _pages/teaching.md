@@ -4,7 +4,30 @@ title: "Teaching"
 permalink: /teaching/
 author_profile: true
 ---
-
+<style>
+.teach { display: grid; gap: 1rem; margin: 1.25rem 0 2rem; }
+.teach__item {
+  padding: 1.35rem;
+  border: 1px solid #e8dde3;
+  border-left: 4px solid #7a3559;
+  border-radius: 8px;
+  background: #fdfbfc;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.teach__item:hover { box-shadow: 0 2px 18px rgba(122,53,89,0.12); transform: translateY(-2px); }
+.teach__year {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: #f4e9ef;
+  color: #7a3559;
+  margin-bottom: 0.6rem;
+}
+.teach__title { margin: 0 0 0.15rem; font-size: 1.1rem; font-weight: 500; color: #7a3559; }
+.teach__meta { margin: 0 0 0.5rem; font-size: 0.85rem; color: #86837c; }
+.teach__desc { margin: 0; font-size: 0.92rem; line-height: 1.6; }
+</style>
 ## <span class="marker">2026–27</span>
 
 <div class="teach">
