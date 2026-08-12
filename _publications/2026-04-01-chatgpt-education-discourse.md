@@ -11,6 +11,7 @@ paperurl: "https://arxiv.org/abs/2605.17712"
 topics:
   - Generative AI
   - Online harms
+  - Empirical methods
 links:
   - label: Full Paper
     url: "https://arxiv.org/abs/2605.17712"
