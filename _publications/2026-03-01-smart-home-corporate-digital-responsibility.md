@@ -15,6 +15,7 @@ topics:
   - AI law and regulation
   - Cybersecurity
   - Online harms
+  - Corporate digital responsibility 
 links:
   - label: Preprint (SSRN)
     url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7123200"
