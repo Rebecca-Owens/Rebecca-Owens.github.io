@@ -1,5 +1,6 @@
 ---
 title: "Accountability in the Fake Follower Market"
+featured: true
 collection: publications
 permalink: /publication/fake-follower-market
 date: 2026-05-01
