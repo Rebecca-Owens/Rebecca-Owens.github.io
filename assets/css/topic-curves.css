@@ -72,7 +72,8 @@
   color: inherit;
   text-align: right;
   cursor: pointer;
-  transition: opacity 0.18s ease, color 0.18s ease;
+  transform-origin: right center;
+  transition: opacity 0.18s ease, color 0.18s ease, transform 0.2s ease;
 }
 
 .pc__topic-count {
@@ -82,7 +83,16 @@
 }
 
 .pc__topic:hover .pc__topic-name { color: var(--pc-accent); }
-.pc__topic.is-active { color: var(--pc-accent); font-weight: 500; }
+.pc__topic:hover { transform: scale(1.06); }
+
+/* Selected interest grows. Right-origin so it expands away from the curve
+   anchors rather than dragging them sideways. */
+.pc__topic.is-active {
+  color: var(--pc-accent);
+  font-weight: 600;
+  transform: scale(1.18);
+}
+
 .pc__topic.is-dim { opacity: 0.4; }
 
 .pc__topic:focus-visible,
@@ -268,6 +278,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .pc__edge, .pc__pub, .pc__topic { transition: none; }
+  .pc__topic.is-active, .pc__topic:hover { transform: none; }
 }
 
 /* ---- Minimal Mistakes / academicpages width overrides ----
