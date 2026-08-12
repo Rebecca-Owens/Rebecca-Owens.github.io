@@ -45,8 +45,7 @@
 
         <div class="pc__body">
           <h3 class="pc__title">
-            {% if p.paperurl %}
-              <a href="{{ p.paperurl }}">{{ p.title }}</a>
+            {% if p.paperurl %}<a href="{{ p.paperurl }}" target="_blank" rel="noopener">{{ p.title }}</a>
             {% else %}
               <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
             {% endif %}
