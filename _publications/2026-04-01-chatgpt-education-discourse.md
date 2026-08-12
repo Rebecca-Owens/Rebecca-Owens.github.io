@@ -1,5 +1,6 @@
 ---
 title: "ChatGPT vs Teachers vs Students: Large Scale Analysis of Generative AI Discourse on Education Subreddits"
+teaser: /images/teasers/chatgpt-education.png
 collection: publications
 permalink: /publication/chatgpt-education-discourse
 date: 2026-04-01
