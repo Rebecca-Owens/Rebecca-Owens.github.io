@@ -1,5 +1,6 @@
 ---
 title: "Playing with Privacy: Uncovering Everyday Judgments of Data Sensitivity Through an Arcade Machine Interface"
+featured: true
 collection: publications
 permalink: /publication/playing-with-privacy
 date: 2026-02-01
