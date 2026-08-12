@@ -14,7 +14,7 @@ topics:
   - Online harms
   - AI law and regulation
 links:
-  - label: DOI
+  - label: Full Paper
     url: "https://doi.org/10.1145/3805689.3806758"
 citation: "M Kalameyets, R Owens, H Hammouchi, A Sergeeva, S Hoehn, E Jalilzade, J Wang, S Patel, S Aidinlis, B Farrand, G Lenzini and L Shi, 'Accountability in the Fake Follower Market' in <i>Proceedings of the 2026 ACM Conference on Fairness, Accountability, and Transparency</i> (FAccT '26, ACM 2026) 5864."
 ---
