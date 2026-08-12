@@ -34,11 +34,8 @@
 .pc__rail {
   grid-column: 1;
   align-self: start;
-  position: sticky;
-  top: 2rem;
   text-align: right;
 }
-
 .pc__rail-head {
   margin: 0 0 0.75rem;
   font-size: 0.6875rem;
