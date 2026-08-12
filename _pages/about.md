@@ -16,6 +16,12 @@ Legal frameworks were built around ideas of control and decision-making. Technol
 
 Using interdisciplinary methods, I examine how these systems are designed and experienced in practice, and what that means for building more effective forms of legal and institutional accountability.
 
+## News
+
+- **Aug 2026** — Presenting at University of Strathclyde Cybercrime Summer School
+- **Jun 2026** — New article out in the *Journal of AI Law and Regulation*
+- **Jun 2026** — Paper Presented at FAccT
+
 ## Interests
 
 - AI Regulation
