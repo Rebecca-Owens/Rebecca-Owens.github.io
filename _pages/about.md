@@ -37,4 +37,6 @@ Using interdisciplinary methods, I examine how these systems are designed and ex
 
 {% include research-highlights.html %}
 
+
+
 📄 [All publications](/publications/) &nbsp;·&nbsp; 🎤 [Talks](/talks/) &nbsp;·&nbsp; 🎓 [Teaching](/teaching/)
