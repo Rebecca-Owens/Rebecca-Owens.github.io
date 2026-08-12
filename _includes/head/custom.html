@@ -133,6 +133,42 @@
       rgba(243, 212, 226, 0) 99.5%
     );
   }
+     /* ---- news timeline ---- */
+
+  .news-list { list-style: none; padding-left: 0; margin-left: 0; }
+  .news-list li {
+    position: relative;
+    padding: 0 0 0.9rem 1.5rem;
+    border-left: 2px solid #f0e2e9;
+    line-height: 1.5;
+  }
+  .news-list li:last-child { border-left-color: transparent; padding-bottom: 0; }
+  .news-list li::before {
+    content: '';
+    position: absolute;
+    left: -5px; top: 8px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #7a3559;
+  }
+  .news-list strong { color: #7a3559; font-weight: 600; }
+
+  /* ---- interest pills ---- */
+
+  .interest-tags {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .interest-tags li {
+    padding: 0.35rem 0.85rem;
+    border: 1px solid #e8dde3;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    background: #faf6f8;
+  }
 
   /* ---- footer ---- */
 
