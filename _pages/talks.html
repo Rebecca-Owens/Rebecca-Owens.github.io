@@ -1,0 +1,103 @@
+---
+layout: single
+title: "Talks"
+permalink: /talks/
+author_profile: false
+classes: wide pc-page
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/talks.css' | relative_url }}?v=1">
+
+<div class="tk">
+
+  <div class="tk__map-wrap">
+    <div id="tk-map" class="tk__map" role="img" aria-label="Map of the United Kingdom and Hong Kong showing the locations where these talks were given."></div>
+    <p class="tk__map-note">Hover a pin to see the talk. Some venues aren't mapped.</p>
+  </div>
+
+  {% assign kinds = "invited,conference,engagement" | split: "," %}
+  {% assign labels = "Invited talks,Conference papers,Practitioner and policy engagement" | split: "," %}
+
+  {% for k in kinds %}
+    {% assign group = site.data.talks | where: "kind", k %}
+    {% if group.size > 0 %}
+      <section class="tk__section">
+        <h2 class="tk__heading"><span class="marker">{{ labels[forloop.index0] }}</span></h2>
+
+        {% for t in group %}
+          <article class="tk__item" data-kind="{{ t.kind }}"{% if t.lat %} data-place="{{ t.place }}"{% endif %}>
+            <span class="tk__year">{{ t.year }}</span>
+            <div class="tk__body">
+              <p class="tk__title">{{ t.title }}</p>
+              <p class="tk__meta">{{ t.authors }}</p>
+              <p class="tk__venue">{{ t.venue }}</p>
+              {% if t.award %}<p class="tk__award">{{ t.award }}</p>{% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </section>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script>
+(function () {
+  var pins = [
+    {% for t in site.data.talks %}{% if t.lat %}
+    { name: {{ t.place | jsonify }}, lat: {{ t.lat }}, lng: {{ t.lng }}, kind: {{ t.kind | jsonify }}, title: {{ t.title | jsonify }} },
+    {% endif %}{% endfor %}
+  ];
+
+  var COLOURS = { invited: '#7a3559', conference: '#a86b8a', engagement: '#5c2742' };
+
+  var el = document.getElementById('tk-map');
+  if (!el) return;
+
+  var W = 620, H = 500;
+  var svg = d3.select(el).append('svg')
+    .attr('viewBox', '0 0 ' + W + ' ' + H)
+    .attr('width', '100%')
+    .style('display', 'block');
+
+  var proj = d3.geoMercator().center([-3.2, 55.4]).scale(1500).translate([W * 0.42, H * 0.5]);
+  var path = d3.geoPath(proj);
+
+  d3.json('https://cdn.jsdelivr.net/npm/datamaps@0.5.10/src/js/data/uk.topo.json').then(function (uk) {
+    var feats = topojson.feature(uk, uk.objects.subunits).features;
+
+    svg.append('g').selectAll('path').data(feats).join('path')
+      .attr('d', path)
+      .attr('fill', '#f4e9ef')
+      .attr('stroke', '#d9b3c6')
+      .attr('stroke-width', 0.7);
+
+    var tip = d3.select(el).append('div').attr('class', 'tk__tip').style('opacity', 0);
+
+    var g = svg.append('g');
+
+    pins.forEach(function (p) {
+      var xy = proj([p.lng, p.lat]);
+      var offMap = !xy || xy[0] < 0 || xy[0] > W || xy[1] < 0 || xy[1] > H;
+      if (offMap) {
+        xy = [W - 78, H - 60];
+        p.name = p.name + ' (off map)';
+      }
+      g.append('circle')
+        .attr('cx', xy[0]).attr('cy', xy[1]).attr('r', 6)
+        .attr('fill', COLOURS[p.kind] || '#7a3559')
+        .attr('stroke', '#faf6f8').attr('stroke-width', 1.6)
+        .style('cursor', 'pointer')
+        .on('mouseenter', function (ev) {
+          tip.style('opacity', 1).html('<strong>' + p.name + '</strong><br>' + p.title)
+             .style('left', (xy[0] + 12) + 'px')
+             .style('top', (xy[1] - 6) + 'px');
+        })
+        .on('mouseleave', function () { tip.style('opacity', 0); });
+    });
+  }).catch(function () {
+    el.innerHTML = '<p class="tk__map-note">Map unavailable.</p>';
+  });
+})();
+</script>
