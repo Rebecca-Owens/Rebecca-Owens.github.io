@@ -1,5 +1,6 @@
 ---
 title: "Personalised Shopping and Algorithmic Pricing: How EU Competition Law Can Protect Consumers in the Digital World"
+teaser: /images/teasers/algorithmic-pricing.png
 collection: publications
 permalink: /publication/personalised-shopping-algorithmic-pricing
 date: 2022-09-01
