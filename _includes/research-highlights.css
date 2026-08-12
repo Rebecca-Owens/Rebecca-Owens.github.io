@@ -1,0 +1,93 @@
+/* Research highlights — homepage only.
+   Deliberately separate from topic-curves.css so edits to one can't break the
+   other. Colours match the plum accent used across the site. */
+
+.rh {
+  --rh-accent:   #7a3559;
+  --rh-accent-bg:#f4e9ef;
+  --rh-muted:    #86837c;
+  --rh-hair:     #e8dde3;
+  margin: 1.25rem 0 0;
+}
+
+.rh__pub {
+  display: flex;
+  gap: 1.15rem;
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.4rem;
+  border-bottom: 1px solid var(--rh-hair);
+}
+
+.rh__pub:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+
+.rh__teaser {
+  width: 150px;
+  height: auto;
+  flex-shrink: 0;
+  border: 1px solid var(--rh-hair);
+  border-radius: 3px;
+  object-fit: cover;
+  background: #faf6f8;
+}
+
+.rh__body { min-width: 0; }
+
+.rh__title {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.35;
+  border-bottom: 0;
+}
+
+.rh__title a { color: var(--rh-accent); text-decoration: none; }
+.rh__title a:hover { text-decoration: underline; }
+
+.rh__authors {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--rh-muted);
+}
+
+.rh__authors .pc__me {
+  color: #1f1f1e;
+  border-bottom: 1px solid currentColor;
+}
+
+.rh__venue {
+  margin: 0 0 0.3rem;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.rh__badge {
+  font-size: 0.6875rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  background: var(--rh-accent-bg);
+  color: var(--rh-accent);
+  white-space: nowrap;
+}
+
+.rh__award { margin: 0 0 0.3rem; font-size: 0.85rem; color: var(--rh-accent); font-weight: 500; }
+
+.rh__links { margin: 0; font-size: 0.85rem; color: var(--rh-muted); }
+.rh__links a { color: var(--rh-accent); text-decoration: none; border-bottom: 1px solid var(--rh-hair); }
+.rh__links a:hover { border-bottom-color: var(--rh-accent); }
+
+/* "Full list" link sitting beside the heading. */
+.rh-full {
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-left: 0.6rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .rh__pub { flex-direction: column; gap: 0.75rem; }
+  .rh__teaser { width: 100%; max-width: 280px; }
+}

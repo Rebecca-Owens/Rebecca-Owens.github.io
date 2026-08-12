@@ -1,0 +1,49 @@
+{% comment %}
+  Research highlights for the homepage.
+
+  Shows only publications with `featured: true` in their front matter, newest
+  first. Add that field to the three or four papers you most want people to see;
+  everything else stays on /publications/ only.
+
+  No curves, no filtering — this is a short read-and-move-on list.
+{% endcomment %}
+
+{% assign featured = site.publications | where: 'featured', true | sort: 'date' | reverse %}
+
+{% if featured.size > 0 %}
+<div class="rh">
+  {% for p in featured %}
+    <article class="rh__pub">
+
+      {% if p.teaser %}
+        <img class="rh__teaser" src="{{ p.teaser | relative_url }}" alt="" loading="lazy">
+      {% endif %}
+
+      <div class="rh__body">
+        <h3 class="rh__title">
+          {% if p.paperurl %}
+            <a href="{{ p.paperurl }}">{{ p.title }}</a>
+          {% else %}
+            <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+          {% endif %}
+        </h3>
+
+        {% if p.authors %}<p class="rh__authors">{{ p.authors }}</p>{% endif %}
+
+        <p class="rh__venue">
+          {% if p.venueshort %}<span class="rh__badge">{{ p.venueshort }}</span>{% endif %}
+          <span>{{ p.venue }}{% if p.date %}, {{ p.date | date: "%Y" }}{% endif %}</span>
+        </p>
+
+        {% if p.award %}<p class="rh__award">{{ p.award }}</p>{% endif %}
+
+        {% if p.links %}
+          <p class="rh__links">
+            {% for l in p.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% unless forloop.last %} <span aria-hidden="true">·</span> {% endunless %}{% endfor %}
+          </p>
+        {% endif %}
+      </div>
+    </article>
+  {% endfor %}
+</div>
+{% endif %}
