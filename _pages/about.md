@@ -17,17 +17,21 @@ Using interdisciplinary methods, I examine how these systems are designed and ex
 
 ## <span class="marker">News</span>
 
-- **Aug 2026** — Presenting at University of Strathclyde Cybercrime Summer School
-- **Jun 2026** — New article out in the *Journal of AI Law and Regulation*
-- **Jun 2026** — Paper presented at FAccT
+<ul class="news-list">
+  <li><strong>Aug 2026</strong> — Presenting at University of Strathclyde Cybercrime Summer School</li>
+  <li><strong>Jun 2026</strong> — New article out in the <em>Journal of AI Law and Regulation</em></li>
+  <li><strong>Jun 2026</strong> — Paper presented at FAccT</li>
+</ul>
 
 ## <span class="marker">Interests</span>
 
-- AI Regulation
-- Accountability in socio-technical systems
-- Cybersecurity
-- Digital policy and governance
-- Empirical and interdisciplinary legal methods
+<ul class="interest-tags">
+  <li>AI Regulation</li>
+  <li>Accountability in socio-technical systems</li>
+  <li>Cybersecurity</li>
+  <li>Digital policy and governance</li>
+  <li>Empirical and interdisciplinary legal methods</li>
+</ul>
 
 ## <span class="marker">Research Highlights</span> <a class="rh-full" href="/publications/">(Full list)</a>
 
