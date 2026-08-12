@@ -11,6 +11,7 @@ topics:
   - Generative AI
   - Accountability
   - AI law and regulation
-  - Sustainability 
+  - Sustainability
+  - Empirical methods
 citation: "E Jalilzade, M Kalameyets, S Malyviva, R Owens, S Katsigiannis, B Farrand and L Shi, 'Mapping Discrimination in LLM-driven HR Systems' <i>IEEE BigData</i> (2025)."
 ---
