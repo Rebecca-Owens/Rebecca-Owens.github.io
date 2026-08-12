@@ -15,7 +15,6 @@ topics:
   - AI law and regulation
   - Empirical methods
   - Cybersecurity
-    
 links:
   - label: Full Paper
     url: "https://doi.org/10.1145/3805689.3806758"
