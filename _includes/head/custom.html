@@ -7,23 +7,32 @@
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"></noscript>
 
 <!-- Support for Font Awesome -->
- <link rel="preload" href="{{ base_path }}/assets/css/fontawesome.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="{{ base_path }}/assets/css/fontawesome.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{{ base_path }}/assets/css/fontawesome.css"></noscript>
 
-<!-- favicon from https://commons.wikimedia.org/wiki/File:OOjs_UI_icon_academic-progressive.svg -->
+<!-- favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="{{ base_path }}/images/apple-touch-icon-180x180.png"/>
 <link rel="icon" type="image/svg+xml" href="{{ base_path }}/images/favicon.svg"/>
 <link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-32x32.png" sizes="32x32"/>
 <link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-192x192.png" sizes="192x192"/>
 <link rel="manifest" href="{{ base_path }}/images/manifest.json"/>
 <link rel="icon" href="/images/favicon.ico"/>
-<meta name="theme-color" content="var(--global-bg-color)"/>
+<meta name="theme-color" content="#ffffff"/>
 
 <!-- end custom head snippets -->
-<link rel="stylesheet" href="{{ '/assets/css/topic-curves.css' | relative_url }}">
-<link rel="stylesheet" href="{{ '/assets/css/topic-curves.css' | relative_url }}?v=2">
+
+<!-- Site stylesheets. Bump the ?v= number whenever you edit one of these,
+     or browsers will keep serving the old cached copy. -->
+<link rel="stylesheet" href="{{ '/assets/css/topic-curves.css' | relative_url }}?v=5">
+<link rel="stylesheet" href="{{ '/assets/css/research-highlights.css' | relative_url }}?v=1">
+
 <style>
-  /* Plum accent, white page — overrides the default theme's blue. */
+  /* ============================================================
+     Plum accent on white. One <style> block only — every rule
+     below lives between these two tags. Anything pasted outside
+     them will print on the page as visible text.
+     ============================================================ */
+
   :root {
     --global-link-color: #7a3559;
     --global-link-color-hover: #5c2742;
@@ -33,102 +42,113 @@
     --global-border-color: #e2dfd8;
   }
 
-  .masthead { background: #ffffff; border-bottom: 1px solid #e2dfd8; }
-  .page__footer { background: #ffffff; border-top: 1px solid #e2dfd8; }
-  .author__avatar img { border: 2px solid #e2dfd8; }
-   .author__avatar img { border: 2px solid #e2dfd8; }
-  .page__footer-follow { display: none; }
- .masthead { background: #ffffff; border-bottom: 1px solid #e2dfd8; }
-.greedy-nav { background: transparent; }
-.greedy-nav a { color: #1f1f1e; }
-.greedy-nav .visible-links a:before { background: #7a3559; height: 2px; }
-.greedy-nav a:hover { color: #7a3559; }
- .greedy-nav a.is-current {
-  color: #7a3559 !important;
-  font-weight: 600;
-}
- .greedy-nav a.is-current:after {
-  content: '';
-  display: block;
-  height: 2px;
-  background: #7a3559;
-  margin-top: 3px;
-}
- <style>
-  .masthead .site-title { color: #7a3559 !important; }
-  .page__footer { display: none; }
- .masthead .site-title,
-.masthead .site-title a,
-.masthead .greedy-nav .site-title,
-.greedy-nav > .site-title,
-a.site-title {
-  color: #7a3559 !important;
-}
- <style>
-  /* your existing rules — plum links, site title, hidden footer, etc. */
-  .masthead .site-title { color: #7a3559 !important; }
-  .page__footer { display: none; }
+  /* ---- masthead ---- */
 
-  /* new: headings */
-  .page__content h2,
-  .page__content h3 {
-    color: #7a3559;
-    border-bottom-color: #e8dde3;
+  .masthead {
+    background: #ffffff;
+    border-bottom: 1px solid #e2dfd8;
   }
 
-  /* new: blockquote */
-  .page__content blockquote {
-    border-left: 3px solid #7a3559;
-    color: #4a4a48;
+  .masthead .site-title,
+  .masthead .site-title a,
+  .masthead .greedy-nav .site-title,
+  .greedy-nav > .site-title,
+  a.site-title {
+    color: #7a3559 !important;
+    font-weight: 600;
   }
 
-  /* new: sidebar */
+  .greedy-nav { background: transparent; }
+  .greedy-nav a { color: #1f1f1e; }
+  .greedy-nav a:hover { color: #7a3559; }
+  .greedy-nav .visible-links a:before { background: #7a3559; height: 2px; }
+
+  /* current page, set by the script at the bottom of this file */
+  .greedy-nav a.is-current { color: #7a3559 !important; font-weight: 600; }
+  .site-title.is-current:after { display: none; }
+
+  /* dark-mode toggle removed */
+  .theme-toggle, #theme-toggle, .masthead__theme-toggle { display: none; }
+
+  /* ---- sidebar ---- */
+
   .sidebar {
     background: #faf6f8;
     padding: 1.25rem 1rem;
     border-radius: 6px;
   }
+
   .author__name { color: #7a3559; }
   .author__urls .fa, .author__urls .ai { color: #7a3559; }
- .author__avatar img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  object-position: center 30%;
-  border-radius: 50%;
-}
- .highlight {
-  background: linear-gradient(180deg, transparent 55%, #f3d4e2 55%);
-  padding: 0 0.15em;
-  font-weight: 500;
-}
- .marker {
-  background-image: linear-gradient(
-    100deg,
-    rgba(243, 212, 226, 0) 0.5%,
-    rgba(243, 212, 226, 0.85) 2%,
-    rgba(243, 212, 226, 0.75) 95%,
-    rgba(243, 212, 226, 0) 99.5%
-  );
-  background-repeat: no-repeat;
-  background-size: 100% 62%;
-  background-position: 0 78%;
-  padding: 0 0.3em 0.1em;
-  border-radius: 0.2em;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
- <link rel="stylesheet" href="{{ '/assets/css/research-highlights.css' | relative_url }}?v=1">
- <style>
-  .marker { ...your existing rule... }
 
-  .page__content h2 .marker,
-  .page__content h1 .marker { display: inline; }
+  .author__avatar img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center 30%;
+    border-radius: 50%;
+    border: 2px solid #e2dfd8;
+  }
 
-  .page__content h2 { border-bottom: 0; }
+  /* ---- page content ---- */
+
+  .page__content h2,
+  .page__content h3 {
+    color: #7a3559;
+    border-bottom: 0;
+  }
+
+  .page__content blockquote {
+    border-left: 3px solid #7a3559;
+    color: #4a4a48;
+  }
+
+  /* ---- highlighter marker ---- */
+
+  .marker {
+    display: inline;
+    background-image: linear-gradient(
+      100deg,
+      rgba(243, 212, 226, 0) 0.5%,
+      rgba(243, 212, 226, 0.85) 2%,
+      rgba(243, 212, 226, 0.75) 95%,
+      rgba(243, 212, 226, 0) 99.5%
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 62%;
+    background-position: 0 78%;
+    padding: 0 0.3em 0.1em;
+    border-radius: 0.2em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  /* slight angle variation so repeated markers don't look stamped */
+  .page__content h2:nth-of-type(even) .marker {
+    background-image: linear-gradient(
+      80deg,
+      rgba(243, 212, 226, 0) 0.5%,
+      rgba(243, 212, 226, 0.8) 2%,
+      rgba(243, 212, 226, 0.7) 95%,
+      rgba(243, 212, 226, 0) 99.5%
+    );
+  }
+
+  /* ---- footer ---- */
+
+  .page__footer { display: none; }
 </style>
 
-.page__content h1 .marker { font-weight: 600; }
- .theme-toggle, #theme-toggle, .masthead__theme-toggle { display: none; }
-</style>
-
+<script>
+  /* Marks the current page's nav link so it can be styled plum. */
+  document.addEventListener('DOMContentLoaded', function () {
+    var here = window.location.pathname.replace(/\/$/, '');
+    var links = document.querySelectorAll('.greedy-nav a');
+    Array.prototype.forEach.call(links, function (a) {
+      var href = a.getAttribute('href');
+      if (!href) return;
+      var target = href.replace(/\/$/, '');
+      if (target === here) a.classList.add('is-current');
+    });
+  });
+</script>
