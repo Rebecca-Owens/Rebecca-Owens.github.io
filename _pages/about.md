@@ -3,7 +3,7 @@ permalink: /
 title: ""
 author_profile: true
 ---
-# <span class="marker">Hi, I'm Rebecca 👋</span>
+# <span class="marker">Hi, I'm Becca 👋</span>
 
 I'm a Postdoctoral Research Associate at **Durham University**, working at the intersection of AI law and digital policy. My research asks how emerging technologies reshape accountability and the operation of law in practice.
 
