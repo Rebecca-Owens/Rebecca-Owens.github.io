@@ -1,5 +1,6 @@
 ---
 title: "Mapping Discrimination in LLM-driven HR Systems"
+teaser: /images/teasers/llm-hr-discrimination.png
 collection: publications
 permalink: /publication/discrimination-llm-hr
 date: 2025-12-01
