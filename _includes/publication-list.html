@@ -40,7 +40,7 @@
     <article class="pc__pub" data-topics="{% for t in p.topics %}{{ t | slugify }}{% if forloop.last == false %}&#32;{% endif %}{% endfor %}">
 
         {% if p.teaser %}
-          <img class="pc__teaser" src="{{ p.teaser | relative_url }}" alt="" loading="lazy">
+          <img class="pc__teaser" src="{{ p.teaser | relative_url }}" alt="">
         {% endif %}
 
         <div class="pc__body">
