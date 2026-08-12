@@ -29,4 +29,8 @@ Using interdisciplinary methods, I examine how these systems are designed and ex
 - Digital policy and governance
 - Empirical and interdisciplinary legal methods
 
+  ## <span class="marker">Research Highlights</span> <a class="rh-full" href="/publications/">(Full list)</a>
+
 {% include research-highlights.html %}
+
+📄 [All publications](/publications/) &nbsp;·&nbsp; 🎤 [Talks](/talks/) &nbsp;·&nbsp; 🎓 [Teaching](/teaching/)
