@@ -152,6 +152,9 @@
         var slug = btn.getAttribute('data-topic');
         selected = (selected === slug) ? null : slug;
         render();
+        /* The selected label scales up, which moves its right edge. Redraw once
+           the transform has settled so the curves meet it in its new position. */
+        setTimeout(draw, 220);
       });
     });
 
