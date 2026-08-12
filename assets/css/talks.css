@@ -1,0 +1,106 @@
+/* Talks page: map plus three grouped sections. */
+
+.tk {
+  --tk-accent:   #7a3559;
+  --tk-deep:     #5c2742;
+  --tk-mid:      #a86b8a;
+  --tk-muted:    #86837c;
+  --tk-hair:     #e8dde3;
+  --tk-pale:     #faf6f8;
+}
+
+/* ---- map ---- */
+
+.tk__map-wrap {
+  position: relative;
+  max-width: 620px;
+  margin: 0 auto 2.5rem;
+}
+
+.tk__map { position: relative; }
+
+.tk__map-note {
+  margin: 0.4rem 0 0;
+  font-size: 0.75rem;
+  color: var(--tk-muted);
+  text-align: center;
+}
+
+.tk__tip {
+  position: absolute;
+  pointer-events: none;
+  background: #ffffff;
+  border: 1px solid var(--tk-hair);
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  max-width: 220px;
+  color: #1f1f1e;
+  transition: opacity 0.15s ease;
+  z-index: 5;
+}
+
+.tk__tip strong { color: var(--tk-accent); }
+
+/* ---- sections ---- */
+
+.tk__section { margin-bottom: 2.5rem; }
+
+.tk__heading {
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin: 0 0 1rem;
+  border-bottom: 0;
+}
+
+.tk__item {
+  display: flex;
+  gap: 1.1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--tk-hair);
+}
+
+.tk__item:last-child { border-bottom: 0; margin-bottom: 0; }
+
+.tk__year {
+  flex: 0 0 3rem;
+  font-size: 0.8rem;
+  color: var(--tk-accent);
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.15rem;
+}
+
+.tk__body { min-width: 0; }
+
+.tk__title {
+  margin: 0 0 0.2rem;
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.tk__meta {
+  margin: 0 0 0.15rem;
+  font-size: 0.83rem;
+  color: var(--tk-muted);
+}
+
+.tk__venue {
+  margin: 0;
+  font-size: 0.83rem;
+  color: #4a4a48;
+}
+
+.tk__award {
+  margin: 0.25rem 0 0;
+  font-size: 0.83rem;
+  color: var(--tk-accent);
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .tk__item { gap: 0.75rem; }
+  .tk__year { flex-basis: 2.6rem; }
+}
