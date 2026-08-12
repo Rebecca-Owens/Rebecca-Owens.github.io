@@ -12,7 +12,7 @@ topics:
   - Generative AI
   - Online harms
 links:
-  - label: arXiv
+  - label: Full Paper
     url: "https://arxiv.org/abs/2605.17712"
 citation: "P Yuce, X Dai, R Owens and T Elmas, 'ChatGPT vs Teachers vs Students: Large Scale Analysis of Generative AI Discourse on Education Subreddits' ICWSM preprint, arXiv:2605.17712."
 ---
