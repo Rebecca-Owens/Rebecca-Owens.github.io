@@ -11,8 +11,8 @@ classes: wide pc-page
 <div class="tk">
 
   <div class="tk__map-wrap">
-    <div id="tk-map" class="tk__map" role="img" aria-label="Map of the United Kingdom and Hong Kong showing the locations where these talks were given."></div>
-    <p class="tk__map-note">Hover a pin to see the talk. Some venues aren't mapped.</p>
+    <div id="tk-map" class="tk__map" role="img" aria-label="Map showing the locations where these talks were given."></div>
+    <p class="tk__map-note">Hover a pin to see the talk.</p>
   </div>
 
   {% assign kinds = "invited,conference,engagement" | split: "," %}
@@ -25,7 +25,7 @@ classes: wide pc-page
         <h2 class="tk__heading"><span class="marker">{{ labels[forloop.index0] }}</span></h2>
 
         {% for t in group %}
-          <article class="tk__item" data-kind="{{ t.kind }}"{% if t.lat %} data-place="{{ t.place }}"{% endif %}>
+          <article class="tk__item" data-kind="{{ t.kind }}">
             <span class="tk__year">{{ t.year }}</span>
             <div class="tk__body">
               <p class="tk__title">{{ t.title }}</p>
@@ -76,20 +76,25 @@ classes: wide pc-page
     var tip = d3.select(el).append('div').attr('class', 'tk__tip').style('opacity', 0);
 
     var g = svg.append('g');
+    var offCount = 0;
 
     pins.forEach(function (p) {
       var xy = proj([p.lng, p.lat]);
       var offMap = !xy || xy[0] < 0 || xy[0] > W || xy[1] < 0 || xy[1] > H;
       if (offMap) {
-        xy = [W - 78, H - 60];
-        p.name = p.name + ' (off map)';
+        offCount++;
+        xy = [W - 110, H - 24 - (offCount * 26)];
+        g.append('text')
+          .attr('x', xy[0] + 13).attr('y', xy[1] + 4)
+          .attr('font-size', '11').attr('fill', '#86837c')
+          .text(p.name);
       }
       g.append('circle')
         .attr('cx', xy[0]).attr('cy', xy[1]).attr('r', 6)
         .attr('fill', COLOURS[p.kind] || '#7a3559')
         .attr('stroke', '#faf6f8').attr('stroke-width', 1.6)
         .style('cursor', 'pointer')
-        .on('mouseenter', function (ev) {
+        .on('mouseenter', function () {
           tip.style('opacity', 1).html('<strong>' + p.name + '</strong><br>' + p.title)
              .style('left', (xy[0] + 12) + 'px')
              .style('top', (xy[1] - 6) + 'px');
