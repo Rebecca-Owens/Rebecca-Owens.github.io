@@ -8,8 +8,8 @@
   --pc-curve:    #cbc7be;
   --pc-accent:   #7a3559;
   --pc-accent-bg:#f4e9ef;
-  --pc-rail:     170px;
-  --pc-gutter:   72px;
+  --pc-rail:     200px;
+  --pc-gutter:   96px;
 
   position: relative;
   display: grid;
@@ -18,30 +18,43 @@
   color: var(--pc-ink);
 }
 
-@media (prefers-color-scheme: dark) {
-  .pc {
-    --pc-ink:      #eceae5;
-    --pc-muted:    #97938b;
-    --pc-hair:     #34322e;
-    --pc-curve:    #4a4741;
-    --pc-accent:   #d98fb2;
-    --pc-accent-bg:#3a2430;
-  }
-}
-
-/* ---- rail ---- */
+/* ---- rail ----
+   Sticky: stays in view while the papers scroll past. The script redraws the
+   curves on scroll so they follow it. */
 
 .pc__rail {
   grid-column: 1;
   align-self: start;
+  position: sticky;
+  top: 5rem;
   text-align: right;
+  z-index: 2;
 }
+
+/* sticky fails silently if an ancestor clips overflow */
+.pc, .pc__list, .page, .page__inner-wrap, #main { overflow: visible; }
+
+/* Highlighter marker on the INTERESTS heading. */
 .pc__rail-head {
+  display: inline-block;
   margin: 0 0 0.75rem;
   font-size: 0.6875rem;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--pc-muted);
+  background-image: linear-gradient(
+    100deg,
+    rgba(243, 212, 226, 0) 0.5%,
+    rgba(243, 212, 226, 0.85) 2%,
+    rgba(243, 212, 226, 0.75) 95%,
+    rgba(243, 212, 226, 0) 99.5%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 62%;
+  background-position: 0 78%;
+  padding: 0 0.3em 0.1em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .pc__topic {
@@ -124,12 +137,9 @@
 
 .pc__list { grid-column: 3; position: relative; z-index: 1; }
 
-.pc__status {
-  margin: 0 0 1.25rem;
-  font-size: 0.75rem;
-  color: var(--pc-muted);
-  font-variant-numeric: tabular-nums;
-}
+/* Paper count hidden. The element stays in the DOM because the script writes
+   the filtered count into it — deleting it would break filtering. */
+.pc__status { display: none; }
 
 .pc__pub {
   display: flex;
@@ -137,14 +147,25 @@
   padding-bottom: 1.75rem;
   margin-bottom: 1.75rem;
   border-bottom: 1px solid var(--pc-hair);
-  transition: opacity 0.2s ease;
+  border-radius: 4px;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
 }
 
 .pc__pub:last-child { border-bottom: 0; margin-bottom: 0; }
 .pc__pub.is-dim { opacity: 0.25; }
 
+/* hover: illuminate a paper and the interests it belongs to */
+.pc__pub.is-hovered {
+  background: var(--pc-accent-bg);
+  box-shadow: 0 0 0 10px var(--pc-accent-bg);
+}
+.pc__pub.is-hovered.is-dim { opacity: 1; }
+
+/* aspect-ratio reserves the space before the image loads, so nothing shifts
+   downward and leaves the curves pointing at the wrong place */
 .pc__teaser {
   width: 176px;
+  aspect-ratio: 3 / 2;
   height: auto;
   flex-shrink: 0;
   border: 1px solid var(--pc-hair);
@@ -199,8 +220,8 @@
 .pc__award { margin: 0 0 0.35rem; font-size: 0.875rem; color: var(--pc-accent); }
 
 .pc__links { margin: 0; font-size: 0.875rem; color: var(--pc-muted); }
-.pc__links a { color: var(--pc-muted); text-decoration: none; border-bottom: 1px solid var(--pc-hair); }
-.pc__links a:hover { color: var(--pc-ink); border-bottom-color: currentColor; }
+.pc__links a { color: var(--pc-accent); text-decoration: none; border-bottom: 1px solid var(--pc-hair); }
+.pc__links a:hover { border-bottom-color: var(--pc-accent); }
 
 /* ---- narrow screens: rail becomes a scrolling row, curves switch off ---- */
 
@@ -249,35 +270,20 @@
   .pc__edge, .pc__pub, .pc__topic { transition: none; }
 }
 
-/* ---- Minimal Mistakes / academicpages overrides ----
-   MM constrains .page to ~75% of the wrapper to leave room for the author
-   sidebar. The three-column grid needs that space back. Scoped to the
-   publications page only, via `classes: wide pc-page` in the front matter. */
+/* ---- Minimal Mistakes / academicpages width overrides ----
+   MM reserves the right third of the wrapper for the author sidebar. The
+   three-column grid needs that space back. */
 
-.pc-page .page {
-  width: 100%;
-  padding-right: 0;
-  float: none;
-}
-
+.pc-page .page { width: 100%; padding-right: 0; float: none; }
 .pc-page .page__inner-wrap { max-width: 1180px; }
-
 .pc-page .page__content h3 { border-bottom: 0; padding-bottom: 0; }
-
 .pc-page .archive { max-width: none; }
 
 @media (min-width: 80em) {
   .pc-page .page { padding-right: 0; }
 }
 
-/* Paper count hidden. The element stays in the DOM because the script writes
-   the filtered count into it — deleting it would break filtering. */
-.pc__status { display: none; }
-
-/* ---- width override fallback ----
-   If the `pc-page` body class never reaches the document (some Minimal Mistakes
-   versions), scope the width fix to wherever the component actually appears. */
-
+/* Fallback for versions where the `pc-page` body class never lands. */
 .page:has(.pc),
 .page__inner-wrap:has(.pc) {
   width: 100% !important;
@@ -288,43 +294,3 @@
 }
 
 #main:has(.pc) { max-width: 1200px; }
-
-/* ---- hover: illuminate a paper and the interests it belongs to ---- */
-
-.pc__pub {
-  border-radius: 4px;
-  transition: opacity 0.2s ease, background-color 0.2s ease;
-}
-
-.pc__pub.is-hovered {
-  background: var(--pc-accent-bg);
-  box-shadow: 0 0 0 10px var(--pc-accent-bg);
-}
-
-/* Hovering a paper must never leave it dimmed. */
-.pc__pub.is-hovered.is-dim { opacity: 1; }
-
-@media (prefers-reduced-motion: reduce) {
-  .pc__pub { transition: none; }
-}
-/* Highlighter marker on the INTERESTS heading. */
-.pc__rail-head {
-  display: inline-block;
-  background-image: linear-gradient(
-    100deg,
-    rgba(243, 212, 226, 0) 0.5%,
-    rgba(243, 212, 226, 0.85) 2%,
-    rgba(243, 212, 226, 0.75) 95%,
-    rgba(243, 212, 226, 0) 99.5%
-  );
-  background-repeat: no-repeat;
-  background-size: 100% 62%;
-  background-position: 0 78%;
-  padding: 0 0.3em 0.1em;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-.pc__teaser {
-  aspect-ratio: 3 / 2;
-  height: auto;
-}
