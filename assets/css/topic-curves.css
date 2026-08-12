@@ -327,3 +327,7 @@
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
+.pc__teaser {
+  aspect-ratio: 3 / 2;
+  height: auto;
+}
