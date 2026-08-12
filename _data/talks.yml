@@ -5,6 +5,16 @@
 #   it just doesn't get a map marker. Only add coordinates you're sure of.
 # `place` is the label shown on the map pin.
 
+- title: "The Evidential Reliability of Agentic Systems: A Socio-Technical Framework for Industrial Liability"
+  authors: "S Aidinlis, R Owens"
+  venue: "6th Machine Lawyering Conference, Chinese University of Hong Kong"
+  year: 2026
+  kind: conference
+  award: "Best Paper Award"
+  place: "Hong Kong"
+  lat: 22.4196
+  lng: 114.2069
+  
 - title: "Creating Impact in Social Sciences"
   authors: "R Owens"
   venue: "Supporting Partnership and Innovation, Newcastle University; and Humanities Innovation Summit, University of London"
@@ -13,16 +23,6 @@
   place: "Newcastle upon Tyne"
   lat: 54.9783
   lng: -1.6178
-
-- title: "The Evidential Reliability of Agentic Systems: A Socio-Technical Framework for Industrial Liability"
-  authors: "S Aidinlis, R Owens"
-  venue: "6th Machine Lawyering Conference, Chinese University of Hong Kong"
-  year: 2026
-  kind: conference
-  award: "Best Paper Award (Second Place)"
-  place: "Hong Kong"
-  lat: 22.4196
-  lng: 114.2069
 
 - title: "From Automation to Accountability: Designing Fair and Responsible Industrial Digital Twins"
   authors: "R Owens, S Aidinlis"
