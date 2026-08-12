@@ -12,5 +12,6 @@ topics:
   - IoT Devices
   - Accountability
   - AI law and regulation
+  - Cybersecurity
 citation: "R Owens and J Copilah Ali, 'Addressing the Unintended Consequences of Smart Home Technology Through a Corporate Digital Responsibility Approach' in A Phillips and E Harbinja (eds), <i>Law and Emerging Technology</i> (Edinburgh University Press 2026) (forthcoming)."
 ---
