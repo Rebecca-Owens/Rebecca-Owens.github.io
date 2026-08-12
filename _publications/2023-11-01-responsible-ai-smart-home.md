@@ -1,5 +1,6 @@
 ---
 title: "Responsible AI and the Smart Home Environment: A Multidisciplinary Overview of Issues, Challenges, and Solutions"
+teaser: /images/teasers/responsible-ai-smart-home.png
 collection: publications
 permalink: /publication/responsible-ai-smart-home
 date: 2023-11-01
