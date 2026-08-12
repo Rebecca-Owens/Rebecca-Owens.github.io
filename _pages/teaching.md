@@ -51,8 +51,6 @@ author_profile: true
 ## <span class="marker">Mentoring</span>
 
 I'm not currently able to supervise doctoral students, but I'm always happy to talk
-with early-career researchers working on AI regulation, accountability, or
-socio-technical approaches to law — whether that's about research directions,
-navigating interdisciplinary collaboration, or the academic job market.
-
+with early-career researchers working on AI regulation, or
+socio-technical approaches to law. 
 Do [get in touch](mailto:rebecca.owens@durham.ac.uk).
