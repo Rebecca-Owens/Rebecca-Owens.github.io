@@ -59,12 +59,15 @@
       svg.setAttribute('preserveAspectRatio', 'none');
       canvas.appendChild(svg);
 
+      /* The rail is sticky, so its offsetTop reports where it *started*, not
+         where it is now. Measure it against the container's live rect instead. */
+      var rootRect = root.getBoundingClientRect();
       var anchors = {};
       topics.forEach(function (btn) {
-        var o = offsetWithin(btn, root);
+        var r = btn.getBoundingClientRect();
         anchors[btn.getAttribute('data-topic')] = {
-          x: o.x + o.w + 6,
-          y: o.y + o.h / 2
+          x: r.right - rootRect.left + 6,
+          y: r.top - rootRect.top + r.height / 2
         };
       });
 
@@ -191,6 +194,14 @@
     });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedule);
     window.addEventListener('load', schedule);
+
+    /* Sticky rail means anchor positions change with scroll. rAF-throttled. */
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { draw(); ticking = false; });
+    }, { passive: true });
   }
 
   function init() {
