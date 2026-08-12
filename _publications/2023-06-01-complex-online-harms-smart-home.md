@@ -1,5 +1,6 @@
 ---
 title: "Complex Online Harms and the Smart Home: A Scoping Review"
+teaser: /images/teasers/online-harms-scoping.png
 collection: publications
 permalink: /publication/complex-online-harms-smart-home
 date: 2023-06-01
