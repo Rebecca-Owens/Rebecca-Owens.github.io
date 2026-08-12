@@ -1,0 +1,142 @@
+# Talks, newest first within each section.
+#
+# `kind` must be one of: invited, conference, engagement
+# `lat`/`lng` are optional — a talk without them still appears in the list,
+#   it just doesn't get a map marker. Only add coordinates you're sure of.
+# `place` is the label shown on the map pin.
+
+- title: "Creating Impact in Social Sciences"
+  authors: "R Owens"
+  venue: "Supporting Partnership and Innovation, Newcastle University; and Humanities Innovation Summit, University of London"
+  year: 2026
+  kind: invited
+  place: "Newcastle upon Tyne"
+  lat: 54.9783
+  lng: -1.6178
+
+- title: "The Evidential Reliability of Agentic Systems: A Socio-Technical Framework for Industrial Liability"
+  authors: "S Aidinlis, R Owens"
+  venue: "6th Machine Lawyering Conference, Chinese University of Hong Kong"
+  year: 2026
+  kind: conference
+  award: "Best Paper Award (Second Place)"
+  place: "Hong Kong"
+  lat: 22.4196
+  lng: 114.2069
+
+- title: "From Automation to Accountability: Designing Fair and Responsible Industrial Digital Twins"
+  authors: "R Owens, S Aidinlis"
+  venue: "University of Glasgow SLS AI Regulation ECR Event"
+  year: 2026
+  kind: conference
+  place: "Glasgow"
+  lat: 55.8642
+  lng: -4.2518
+
+- title: "Inside the Fake Economy: Bought Popularity, Market Manipulation, and AI Deepfakes"
+  authors: "R Owens"
+  venue: "Tarian ROCU, Regional Organised Crime Unit"
+  year: 2025
+  kind: engagement
+  place: "Cardiff"
+  lat: 51.4816
+  lng: -3.1791
+
+- title: "Accountable Autonomy in Industrial Digital Twins: Fairness, Transparency, and Control for AI-Driven 4D Systems"
+  authors: "R Owens, S Aidinlis"
+  venue: "DAISI"
+  year: 2025
+  kind: invited
+  place: "Durham"
+  lat: 54.7761
+  lng: -1.5733
+
+- title: "Combatting Tech-Abuse"
+  authors: "R Owens"
+  venue: "University of Strathclyde Cybercrime Research Symposium"
+  year: 2025
+  kind: invited
+  place: "Glasgow"
+  lat: 55.8618
+  lng: -4.2429
+
+- title: "Reinterpreting EU AI Regulation Through the Lens of the UN SDGs"
+  authors: "R Owens, S Aidinlis"
+  venue: "SDG+10: A Global Legal Stocktake, University of Southampton; and JustNow Second International Conference, Durham University (poster)"
+  year: 2025
+  kind: conference
+  place: "Southampton"
+  lat: 50.9097
+  lng: -1.4044
+
+- title: "Designing User-Centric RegTech Tools"
+  authors: "R Owens, M Kalameyets"
+  venue: "CyberMi2"
+  year: 2024
+  kind: engagement
+  place: "Birmingham"
+  lat: 52.4862
+  lng: -1.8904
+
+- title: "PoliPoly: Creating Legal Tools that Empower Users' Privacy"
+  authors: "R Owens, M Kalameyets"
+  venue: "Newcastle University NuCoRe Cybersecurity Resilience Day"
+  year: 2024
+  kind: engagement
+  place: "Newcastle upon Tyne"
+  lat: 54.9799
+  lng: -1.6147
+
+- title: "PoliPoly: A Polymorphic ChatGPT-Based Framework for User-Centric Privacy Policy Visual Analysis"
+  authors: "M Kalameyets, R Owens, H Wu, D Lam, B Farrand, L Shi"
+  venue: "PETS Conference (poster)"
+  year: 2024
+  kind: conference
+  place: "Bristol"
+  lat: 51.4545
+  lng: -2.5879
+
+- title: "Smart Home Harms: An Enquiry into Smart Technology-Enabled Domestic Abuse"
+  authors: "D Chambers, S Olabode, R Owens"
+  venue: "European Communication Research and Education Association"
+  year: 2024
+  kind: conference
+  place: "Ljubljana"
+  lat: 46.0569
+  lng: 14.5058
+
+- title: "Opening Pandora's Box: An Examination of Access and Innovation in the CRISPR Era"
+  authors: "R Owens"
+  venue: "BILETA"
+  year: 2022
+  kind: conference
+  place: "Exeter"
+  lat: 50.7184
+  lng: -3.5339
+
+- title: "Unlocking Access to Biotechnological Innovations: From Working Solutions to Working Policy"
+  authors: "R Owens"
+  venue: "SLSA"
+  year: 2022
+  kind: conference
+  place: "York"
+  lat: 53.96
+  lng: -1.0873
+
+- title: "Setting Legal and Scientific Standards in Computational Oncology"
+  authors: "R Owens, A Kalyuzhnyy"
+  venue: "Liverpool Cancer Research Network"
+  year: 2021
+  kind: conference
+  place: "Liverpool"
+  lat: 53.4084
+  lng: -2.9916
+
+- title: "Patents and Scientific Progress: A CRISPR Case Study"
+  authors: "R Owens"
+  venue: "University of Edinburgh PGR Conference"
+  year: 2021
+  kind: conference
+  place: "Edinburgh"
+  lat: 55.9533
+  lng: -3.1883
