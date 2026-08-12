@@ -36,7 +36,7 @@ author_profile: true
     <span class="teach__year">Full year</span>
     <p class="teach__title">Tort Law</p>
     <p class="teach__meta">LLB, Durham University</p>
-    <p class="teach__desc">Negligence, duty of care, and causation — with attention to how established doctrine copes when harm arises from complex digital systems rather than identifiable individual acts.</p>
+    <p class="teach__desc">Negligence, duty of care, and causation. Special attention to how established doctrine copes when harm arises from complex digital systems rather than identifiable individual acts.</p>
   </div>
 
   <div class="teach__item">
