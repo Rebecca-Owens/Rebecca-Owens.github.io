@@ -2,6 +2,7 @@
 title: "Credible, Not Always Correct: How Reddit Users Verify AI-Generated Legal Advice"
 teaser: /images/teasers/credible-not-correct.png
 collection: publications
+featured: true
 permalink: /publication/credible-not-always-correct
 date: 2026-08-13
 venue: "arXiv preprint"
