@@ -18,7 +18,7 @@ Using interdisciplinary methods, I examine how these systems are designed and ex
 ## <span class="marker">News</span>
 
 <ul class="news-list">
-  <li><strong>Jun 2026</strong> — New preprint out on arxiv </li>
+  <li><strong>Aug 2026</strong> — New preprint out on arxiv </li>
   <li><strong>Aug 2026</strong> — Presenting at University of Strathclyde Cybercrime Summer School</li>
   <li><strong>Jun 2026</strong> — New article out in the <em>Journal of AI Law and Regulation</em></li>
   <li><strong>Jun 2026</strong> — Paper presented at FAccT</li>
