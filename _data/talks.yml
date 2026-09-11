@@ -9,6 +9,14 @@
 # Every other line is indented by exactly two spaces. Two spaces, never a tab.
 
 # ---------- invited ----------
+- title: "Accountability in the Fake Follower Market"
+  authors: "R Owens and M Kalymeyets"
+  venue: "Strathclyde Cybercrime Summer School"
+  year: 2026
+  kind: invited
+  place: "Glasgow"
+  lat: 55.8642
+  lng: -4.2518
 
 - title: "Creating Impact in Social Sciences"
   authors: "R Owens"
