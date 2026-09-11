@@ -19,7 +19,7 @@ Using interdisciplinary methods, I examine how these systems are designed and ex
 
 <ul class="news-list">
   <li><strong>Sept 2026</strong> — Hosted a Cyberinsurance Workshop </li>
-  <li><strong>Aug 2026</strong> — New preprint out on arxiv </li>
+  <li><strong>Aug 2026</strong> — New preprint: <a href="https://doi.org/10.48550/arXiv.2608.13369">Credible, Not Always Correct: How Reddit Users Verify AI-Generated Legal Advice</a></li>
   <li><strong>Aug 2026</strong> — Presenting at University of Strathclyde Cybercrime Summer School</li>
   <li><strong>Jun 2026</strong> — New article out in the <em>Journal of AI Law and Regulation</em></li>
 </ul>
